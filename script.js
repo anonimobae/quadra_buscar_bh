@@ -1,4 +1,4 @@
-const codigosValidos = ["A1B2C", "X9Y8Z", "K3L4M", "P5Q6R", "J7H8G"];
+const codigosValidos = ["A1B2C", "ss", "K3L4M", "P5Q6R", "J7H8G"];
 
 // Função para verificar o código de login
 function verificarLogin() {
