@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Quadras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Tela de Login -->
+    <div id="login-container">
+        <h1>Acesso Restrito</h1>
+        <p>Insira o código de 5 dígitos para acessar o buscador:</p>
+        <input type="text" id="codigo" maxlength="5" placeholder="Digite o código">
+        <button id="entrar">Entrar</button>
+    </div>
+
+    <!-- Tela de Busca -->
+    <div id="busca-container" style="display: none;">
+        <h1>Buscador de Quadras</h1>
+        <form id="filtros">
+            <label for="regiao">Região:</label>
+            <select id="regiao" name="regiao">
+                <option value="">Selecione</option>
+                <option value="Venda Nova">Venda Nova</option>
+                <option value="Pampulha">Pampulha</option>
+            </select>
+
+            <label for="bairro">Bairro:</label>
+            <select id="bairro" name="bairro">
+                <option value="">Todos os bairros da região</option>
+            </select>
+            
+            <button type="button" id="buscar">Buscar</button>
+        </form>
+
+        <div id="resultado">
+            <!-- Resultados aparecerão aqui -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
