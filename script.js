@@ -1,16 +1,19 @@
-const codigosValidos = ["A1B2C", "ss", "K3L4M", "P5Q6R", "J7H8G"];
+// Lista de códigos válidos
+const codigosValidos = ["12345", "ABCDE", "A1B2C", "XYZ12", "P5Q6R"];
 
 // Função para verificar o código de login
-function verificarLogin() {
-    const codigoInserido = document.getElementById('codigo').value;
+document.getElementById('entrar').addEventListener('click', () => {
+    const codigoInserido = document.getElementById('codigo').value.trim();
 
     if (codigosValidos.includes(codigoInserido)) {
-        document.getElementById('login-container').style.display = 'none';
-        document.getElementById('busca-container').style.display = 'block';
+        // Redireciona para a página de busca
+        window.location.href = 'busca.html';
     } else {
+        // Exibe mensagem de erro se o código for inválido
         alert('Código inválido. Tente novamente.');
     }
-}// Dados das quadras inseridos diretamente no código
+});
+// Dados das quadras inseridos diretamente no código
 const quadras = [
     {
       local: "Quadra do Saldanha",
