@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Buscador de Quadras</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    emailjs.init("8RtRUxawVq6HBXrIE"); // Substitua pelo seu User ID do EmailJS
-</script>
 </head>
 <body>
     <!-- Tela de Login -->
@@ -17,8 +13,38 @@
         <p>Insira o código de 5 dígitos para acessar o buscador:</p>
         <input type="text" id="codigo" maxlength="5" placeholder="Digite o código">
         <button id="entrar">Entrar</button>
+        <p id="mensagem-erro" style="color: red;"></p>
         <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
     </div>
-    <script src="script.js"></script>
+    <div id="busca-container" style="display: none;">
+        <h1>Buscador de Quadras</h1>
+      
+        <form id="filtros">
+          <label for="regiao">Região:</label>
+          <select id="regiao" name="regiao">
+            <option value="">Selecione</option>
+            <option value="Venda Nova">Venda Nova</option>
+            <option value="Pampulha">Pampulha</option>
+            <option value="Norte">Norte</option>
+            <option value="Barreiro">Barreiro</option>
+            <option value="Leste">Leste</option>
+            <option value="Oeste">Oeste</option>
+            <option value="Noroeste">Noroeste</option>
+            <option value="Centro-Sul">Centro-Sul</option>
+          </select>
+      
+          <label for="bairro">Bairro:</label>
+          <select id="bairro" name="bairro">
+            <option value="">Todos os bairros da região</option>
+          </select>
+      
+          <button type="button" id="buscar">Buscar</button>
+        </form>
+      
+        <div id="resultado">
+          <!-- Resultados aparecerão aqui -->
+        </div>
+      </div>
+      <script src="script.js"></script>
 </body>
 </html>
