@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="autor-site" style="text-align: center; padding: 10px; font-size: 14px;">
+        Criado por <strong>Samuel Pascini Paiva</strong>
+      </div>
     <!-- Tela de Login -->
     <div id="login-container">
         <h1>Acesso Restrito</h1>
@@ -14,7 +17,7 @@
         <input type="text" id="codigo" maxlength="5" placeholder="Digite o código">
         <button id="entrar">Entrar</button>
         <p id="mensagem-erro" style="color: red;"></p>
-        <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
+        <p>Desejar acessar?  Para acesso entre em contato: samuelpascini123@Gmail.com </p>
     </div>
     <div id="busca-container" style="display: none;">
         <h1>Buscador de Quadras</h1>
@@ -45,6 +48,10 @@
           <!-- Resultados aparecerão aqui -->
         </div>
       </div>
+      <div style="position: fixed; top: 10px; right: 10px;">
+        <button id="toggle-dark">🌙 Modo Escuro</button>
+      </div>
+      
       <script src="script.js"></script>
 </body>
 </html>
