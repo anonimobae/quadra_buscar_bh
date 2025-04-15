@@ -623,13 +623,14 @@ document.getElementById('entrar').addEventListener('click', () => {
     }
   
     resultados.forEach(q => {
-      const div = document.createElement('div');
-      div.classList.add('result-item');
+        const div = document.createElement("div");
+        div.classList.add("result-card");
+        const enderecoEncoded = encodeURIComponent(q.endereco); // para uso seguro na URL
       div.innerHTML = `
         <strong>${q.local}</strong><br>
         Região: ${q.regiao}<br>
         Bairro: ${q.bairro}<br>
-        Endereço: ${q.endereco}<br>
+        Endereço: <a href="https://www.google.com/maps/dir/?api=1&destination=${enderecoEncoded}" target="_blank">${q.endereco}</a></p>
         Contato: ${q.contato}
       `;
       resultadoDiv.appendChild(div);
@@ -639,4 +640,9 @@ document.getElementById('entrar').addEventListener('click', () => {
   // Eventos
   document.getElementById('regiao').addEventListener('change', atualizarBairros);
   document.getElementById('buscar').addEventListener('click', buscarQuadras);
+
+// Alternar entre modo claro e escuro
+document.getElementById('toggle-dark').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
 
