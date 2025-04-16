@@ -1,5 +1,46 @@
+
 // Lista de códigos válidos
 const codigosValidos = ["TONHA", "BH010", "A1B2C", "XYZ12", "P5Q6R"];
+const MOEDAS_INICIAIS = 5;
+
+// Se for o primeiro acesso, define o saldo inicial
+if (!localStorage.getItem("moedas")) {
+  localStorage.setItem("moedas", MOEDAS_INICIAIS);
+}
+function atualizarSaldoMoedas() {
+  const saldo = localStorage.getItem("moedas");
+  const display = document.getElementById("saldo-moedas");
+  if (display) {
+    display.textContent = `💰 Moedas restantes: ${saldo}`;
+  }
+}
+
+function registrarUsoRemoto(senha) {
+  // Primeiro, busca o IP público do usuário
+  fetch("https://api.ipify.org?format=json")
+    .then(res => res.json())
+    .then(data => {
+      const ip = data.ip;
+
+      // Agora envia os dados para o Google Sheets
+      fetch("https://script.google.com/macros/s/AKfycbzJH4rF9IH2JH7fxVZvPvTNGj1OmZ8ZUwGy4BCYKbZF3QuBw0KjZItjzqXZ6US47srLUg/execI", {
+        method: "POST",
+        body: JSON.stringify({
+          senha: senha,
+          ip: ip,
+          navegador: navigator.userAgent
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(() => console.log("Registro remoto OK"))
+      .catch(err => console.error("Erro ao registrar:", err));
+    })
+    .catch(err => console.error("Erro ao buscar IP:", err));
+}
+
+
 
 const quadras = [
     {
@@ -583,6 +624,8 @@ document.getElementById('entrar').addEventListener('click', () => {
       login.style.display = "none";
       busca.style.display = "block";
       document.getElementById("regiao").focus();
+      atualizarSaldoMoedas();
+      registrarUsoRemoto(senha);
     } else {
       erro.textContent = "Código inválido. Tente novamente.";
     }
@@ -609,6 +652,13 @@ document.getElementById('entrar').addEventListener('click', () => {
     const regiao = document.getElementById('regiao').value;
     const bairro = document.getElementById('bairro').value;
     const resultadoDiv = document.getElementById('resultado');
+    let saldo = parseInt(localStorage.getItem("moedas"));
+
+    
+    if (saldo <= 0) {
+      alert("Você não tem mais moedas para realizar buscas.");
+      return;
+    }
   
     const resultados = quadras.filter(q =>
       (!regiao || q.regiao === regiao) &&
@@ -640,6 +690,11 @@ document.getElementById('entrar').addEventListener('click', () => {
       `;
       resultadoDiv.appendChild(div);
     });
+    
+    saldo -= 1;
+    localStorage.setItem("moedas", saldo);
+    atualizarSaldoMoedas();
+
   }
   
   // Eventos
@@ -650,4 +705,5 @@ document.getElementById('entrar').addEventListener('click', () => {
 document.getElementById('toggle-dark').addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
   });
+
 
