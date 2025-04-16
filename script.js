@@ -1,5 +1,5 @@
 // Lista de códigos válidos
-const codigosValidos = ["TONHAO", "BH010", "A1B2C", "XYZ12", "P5Q6R"];
+const codigosValidos = ["TONHA", "BH010", "A1B2C", "XYZ12", "P5Q6R"];
 
 const quadras = [
     {
