@@ -1,5 +1,5 @@
 // Lista de códigos válidos
-const codigosValidos = ["12345", "ABCDE", "A1B2C", "XYZ12", "P5Q6R"];
+const codigosValidos = ["TONHAO123", "BH010", "A1B2C", "XYZ12", "P5Q6R"];
 
 const quadras = [
     {
@@ -24,7 +24,7 @@ const quadras = [
       contato: ""
     },
     {
-      local: "Quara Mantiqueira",
+      local: "Quadra Mantiqueira",
       regiao: "Venda Nova",
       bairro: "Mantiqueira",
       endereco: "Rua Maria Lourdes da Cruz, 250 - Mantiqueira, Belo Horizonte - MG, 31655-230",
@@ -625,9 +625,14 @@ document.getElementById('entrar').addEventListener('click', () => {
     resultados.forEach(q => {
         const div = document.createElement("div");
         div.classList.add("result-card");
+        const nomeEncoded = encodeURIComponent(q.local); // Codifica o nome para URL
         const enderecoEncoded = encodeURIComponent(q.endereco); // para uso seguro na URL
+
+        const perfilMaps = `https://www.google.com/maps/search/?api=1&query=${nomeEncoded}`;
+        const rotaMaps = `https://www.google.com/maps/dir/?api=1&destination=${enderecoEncoded}`;
+
       div.innerHTML = `
-        <strong>${q.local}</strong><br>
+        <strong><a href="${perfilMaps}" target="_blank">${q.local}</a></strong>
         Região: ${q.regiao}<br>
         Bairro: ${q.bairro}<br>
         Endereço: <a href="https://www.google.com/maps/dir/?api=1&destination=${enderecoEncoded}" target="_blank">${q.endereco}</a></p>
