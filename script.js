@@ -23,7 +23,7 @@ function registrarUsoRemoto(senha) {
       const ip = data.ip;
 
       // Agora envia os dados para o Google Sheets
-      fetch("https://script.google.com/macros/s/AKfycbzJH4rF9IH2JH7fxVZvPvTNGj1OmZ8ZUwGy4BCYKbZF3QuBw0KjZItjzqXZ6US47srLUg/execI", {
+      fetch("https://script.google.com/macros/s/AKfycbzJH4rF9IH2JH7fxVZvPvTNGj1OmZ8ZUwGy4BCYKbZF3QuBw0KjZItjzqXZ6US47srLUg/exec", {
         method: "POST",
         body: JSON.stringify({
           senha: senha,
@@ -620,12 +620,13 @@ document.getElementById('entrar').addEventListener('click', () => {
     const erro = document.getElementById('mensagem-erro');
   
     if (codigosValidos.includes(codigo)) {
+      registrarUsoRemoto(senha);
       erro.textContent = "";
       login.style.display = "none";
       busca.style.display = "block";
       document.getElementById("regiao").focus();
       atualizarSaldoMoedas();
-      registrarUsoRemoto(senha);
+    
     } else {
       erro.textContent = "Código inválido. Tente novamente.";
     }
