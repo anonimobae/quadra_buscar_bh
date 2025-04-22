@@ -1,19 +1,6 @@
 
 // Lista de códigos válidos
 const codigosValidos = ["TONHA", "BH010", "A1B2C", "XYZ12", "P5Q6R"];
-const MOEDAS_INICIAIS = 5;
-
-// Se for o primeiro acesso, define o saldo inicial
-if (!localStorage.getItem("moedas")) {
-  localStorage.setItem("moedas", MOEDAS_INICIAIS);
-}
-function atualizarSaldoMoedas() {
-  const saldo = localStorage.getItem("moedas");
-  const display = document.getElementById("saldo-moedas");
-  if (display) {
-    display.textContent = `💰 Moedas restantes: ${saldo}`;
-  }
-}
 
 
 const quadras = [
