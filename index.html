@@ -6,10 +6,23 @@
     <title>Login - Buscador de Quadras</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<a href="https://forms.cloud.microsoft/r/BTs8kHGUT6" target="_blank" class="feedback-btn">
+  💬 Dar feedback
+</a>
+
 <body>
+  
     <div id="autor-site" style="text-align: center; padding: 10px; font-size: 14px;">
         Criado por <strong>Samuel Pascini Paiva</strong>
       </div>
+      <div class="switch-container">
+        <span class="switch-label">🌙 Modo escuro</span>
+        <label class="switch">
+          <input type="checkbox" id="toggle-dark">
+          <span class="slider"></span>
+        </label>
+      </div>
+      
     <!-- Tela de Login -->
     <div id="login-container">
         <h1>Acesso Restrito</h1>
@@ -46,9 +59,6 @@
         <div id="resultado">
           <!-- Resultados aparecerão aqui -->
         </div>
-      </div>
-      <div style="position: fixed; top: 10px; right: 10px;">
-        <button id="toggle-dark">🌙 Modo Escuro</button>
       </div>
       
       <script src="script.js"></script>
