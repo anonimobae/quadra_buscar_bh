@@ -359,3 +359,32 @@ body.dark-mode .explicacao-uso {
 body.dark-mode .explicacao-uso h2 {
     color: #58aaff;
 }
+
+.scroll-btn {
+    font-size: 13px;
+    padding: 6px 12px;
+    background-color: transparent;
+    color: #007BFF;
+    border: 1px solid #007BFF;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: auto;
+}
+
+
+.scroll-btn:hover {
+    background-color: #007BFF;
+    color: white;
+}
+body.dark-mode .scroll-btn {
+    background-color: transparent;
+    color: #58aaff;
+    border: 1px solid #58aaff;
+}
+
+body.dark-mode .scroll-btn:hover {
+    background-color: #58aaff;
+    color: #1c1c1c;
+}
