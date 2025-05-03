@@ -664,6 +664,16 @@ document.getElementById('entrar').addEventListener('click', () => {
   document.getElementById('buscar').addEventListener('click', buscarQuadras);
 
 // Alternar entre modo claro e escuro
-document.getElementById('toggle-dark').addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-  });
+const toggleDark = document.getElementById("toggle-dark");
+
+// Aplica o modo salvo anteriormente
+if (localStorage.getItem("modoEscuro") === "true") {
+  document.body.classList.add("dark-mode");
+  toggleDark.checked = true;
+}
+
+// Alterna o modo ao clicar no botão
+toggleDark.addEventListener("change", () => {
+  document.body.classList.toggle("dark-mode");
+  localStorage.setItem("modoEscuro", document.body.classList.contains("dark-mode"));
+});
