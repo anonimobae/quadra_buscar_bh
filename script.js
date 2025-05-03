@@ -1,6 +1,6 @@
 
 // Lista de códigos válidos
-const codigosValidos = ["TONHA", "BH010", "ALAN1", "ERICK", "DUDU2"];
+const codigosValidos = ["TONHA", "BH010", "A1B2C", "XYZ12", "P5Q6R"];
 
 
 const quadras = [
@@ -676,4 +676,11 @@ if (localStorage.getItem("modoEscuro") === "true") {
 toggleDark.addEventListener("change", () => {
   document.body.classList.toggle("dark-mode");
   localStorage.setItem("modoEscuro", document.body.classList.contains("dark-mode"));
+});
+
+document.getElementById("ver-como-usar").addEventListener("click", () => {
+  const secao = document.getElementById("explicacao-uso");
+  if (secao) {
+    secao.scrollIntoView({ behavior: "smooth" });
+  }
 });
