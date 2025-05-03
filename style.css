@@ -1,3 +1,4 @@
+
 /* ---------- ESTILO BASE CLARO ---------- */
 body {
     font-family: Arial, sans-serif;
@@ -49,12 +50,12 @@ label {
 
 select, button {
     width: 100%;
-    max-width: 350px;
-    padding: 10px;
-    margin: 0 auto 15px auto;
+    max-width: 400px;
+    padding: 15px;
+    margin: 0 auto 20px auto;
     border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 18px;
     display: block;
     box-sizing: border-box;
 }
@@ -71,7 +72,7 @@ button {
     color: white;
     font-weight: 500;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -125,6 +126,63 @@ button:hover {
     box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
+/* ---------- LOGIN AJUSTADO ---------- */
+#login-container {
+    max-width: 450px;
+    margin: 80px auto;
+    padding: 40px 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-container h1, 
+#login-container h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+#login-container input[type="password"],
+#login-container input[type="text"] {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+#login-container button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#login-container button:hover {
+    background-color: #0056b3;
+}
+
+#login-container p, 
+#login-container a {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+#login-container a:hover {
+    text-decoration: underline;
+}
 
 /* ---------- DARK MODE ---------- */
 body.dark-mode {
@@ -145,7 +203,8 @@ body.dark-mode #busca-container {
 }
 
 body.dark-mode select,
-body.dark-mode input[type="text"] {
+body.dark-mode input[type="text"],
+body.dark-mode input[type="password"] {
     background-color: #3a3a3a;
     color: #f0f0f0;
     border: 1px solid #555;
@@ -176,16 +235,3 @@ body.dark-mode .result-card p {
 body.dark-mode .result-card a {
     color: #58aaff;
 }
-
-#busca-container, #login-container {
-    transition: all 0.3s ease;
-  }
-  
-  #autor-site {
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    font-family: sans-serif;
-    color: #333;
-  }
-  
