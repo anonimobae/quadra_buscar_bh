@@ -586,8 +586,9 @@ document.getElementById('entrar').addEventListener('click', () => {
       login.style.display = "none";
       busca.style.display = "block";
       document.getElementById("regiao").focus();
-      atualizarSaldoMoedas();
-    
+      document.getElementById("ver-como-usar").style.display = "none";
+      document.getElementById("explicacao-uso").style.display = "none";
+
     } else {
       erro.textContent = "Código inválido. Tente novamente.";
     }
